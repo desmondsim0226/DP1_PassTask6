@@ -92,9 +92,11 @@ namespace Snake
             Console.Write("*");
         }
     }
-
+    
+    //Main Menu class
     class MainMenu
     {
+        //Console Output
         public void mainMenu()
         {
             Console.WriteLine("Welcome to the Snake Game");
@@ -137,7 +139,7 @@ namespace Snake
             
             bool gameLoop = false;
 
-
+            
             startgame.mainMenu();
             string userOption = Console.ReadLine();
 
