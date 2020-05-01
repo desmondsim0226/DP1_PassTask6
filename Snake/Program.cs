@@ -12,7 +12,6 @@ using System.Media;
 using System.Windows.Media;
 using System.Net;
 
-
 //namespace
 namespace Snake
 {
