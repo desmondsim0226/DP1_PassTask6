@@ -93,6 +93,20 @@ namespace Snake
         }
     }
 
+    class MainMenu
+    {
+        public void mainMenu()
+        {
+            Console.WriteLine("Welcome to the Snake Game");
+            Console.WriteLine("1) Play");
+            Console.WriteLine("2) Scoreboard");
+            Console.WriteLine("3) Exit");
+
+        }
+
+    }
+    
+    
     
     class Program
     {
@@ -100,6 +114,7 @@ namespace Snake
         
         static void Main(string[] args)
         {
+            MainMenu startgame = new MainMenu();
             byte right = 0;
             byte left = 1;
             byte down = 2;
@@ -118,6 +133,33 @@ namespace Snake
             MediaPlayer backgroundMusic = new MediaPlayer();
             backgroundMusic.Open(new System.Uri(Path.Combine(System.IO.Directory.GetCurrentDirectory(), "wii.wav")));
 
+            
+            
+            bool gameLoop = false;
+
+
+            startgame.mainMenu();
+            string userOption = Console.ReadLine();
+
+            if (userOption == "1")
+            {
+                Console.Clear();
+                gameLoop = true;
+
+            }
+            else if (userOption == "2")
+            {
+                Console.WriteLine("ScoreBoard");
+
+            }
+            else if (userOption == "3")
+            { 
+                gameLoop = false;
+                Environment.Exit(0);
+            }
+            
+            
+            
             Position[] directions = new Position[]
             {
                 new Position(0, 1), // right
@@ -174,7 +216,7 @@ namespace Snake
                 game1.createSnakeBody(position);
             }
             
-            while (true)
+            while (gameLoop)
             {
                 negativePoints++;
                 //background music (looping)
