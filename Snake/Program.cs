@@ -14,11 +14,9 @@ using System.Net;
 
 //namespace
 namespace Snake
-{
-    
+{   
     struct Position
-    {
-       
+    {       
         //Variable
         public int row;
         public int col;
@@ -27,8 +25,7 @@ namespace Snake
             this.row = row;
             this.col = col;
         }
-        //this is a structure type entity which holds the data for various positions which will be used as the coordinates on the console screen
-       
+        //this is a structure type entity which holds the data for various positions which will be used as the coordinates on the console screen      
     }
    
     class Game
@@ -102,7 +99,6 @@ namespace Snake
             Console.WriteLine("1) Play");
             Console.WriteLine("2) Scoreboard");
             Console.WriteLine("3) Exit");
-
         }
 
     }
