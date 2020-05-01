@@ -266,24 +266,6 @@ namespace Snake
 
                 Position snakeNewHead = new Position(snakeHead.row + nextDirection.row,
                 snakeHead.col + nextDirection.col);
-
-                //when the snake collides with a wall, it will in turn appear at the opposite side of the wall
-                if (snakeNewHead.col < 0)
-                {
-                    snakeNewHead.col = Console.WindowWidth - 1;
-                }
-                if (snakeNewHead.row < 0)
-                {
-                    snakeNewHead.row = Console.WindowHeight - 1;
-                }
-                if (snakeNewHead.row >= Console.WindowHeight)
-                {
-                    snakeNewHead.row = 0;
-                }
-                if (snakeNewHead.col >= Console.WindowWidth)
-                {
-                    snakeNewHead.col = 0;
-                }
                 
                 //This is to display the player score
                 Console.SetCursorPosition(0, 0);
@@ -293,7 +275,7 @@ namespace Snake
                 Console.WriteLine("Your points are: {0} \t REACH 10 POINTS TO WIN", userPoints);
                 
                 //this is the game over scene after the player loses the game either by the snake colliding with itself or the snake colliding with obstacles                
-                if (snakeElements.Contains(snakeNewHead) || obstacles.Contains(snakeNewHead))
+                if (snakeElements.Contains(snakeNewHead) || obstacles.Contains(snakeNewHead)) || (snakeNewHead.col < 0) || (snakeNewHead.row < 0) || (snakeNewHead.row >= Console.WindowHeight) || (snakeNewHead.col >= Console.WindowWidth)
                 {
                     //When the snake hit the obstacle sound effect (Game Over)
                      SoundPlayer sound1 = new SoundPlayer("die.wav");
